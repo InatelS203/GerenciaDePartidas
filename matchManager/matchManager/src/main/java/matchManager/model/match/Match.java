@@ -1,10 +1,7 @@
 package matchManager.model.match;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import matchManager.model.user.User;
 
 import java.sql.Timestamp;
@@ -16,6 +13,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
