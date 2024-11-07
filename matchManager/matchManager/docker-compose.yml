@@ -18,3 +18,10 @@ services:
       POSTGRES_DB: matchmanager
     ports:
       - "5432:5432"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spring_boot_app
+    restart: always
