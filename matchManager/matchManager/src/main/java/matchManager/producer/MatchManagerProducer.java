@@ -15,19 +15,25 @@ public class MatchManagerProducer {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    // Envio na fila de usuarios
-    public void sendUser(User user) throws JsonProcessingException {
-        amqpTemplate.convertAndSend(
-                "user-queue",
-                objectMapper.writeValueAsString(user)
-        );
+    public void sendUserScore(User user) {
+        try{
+            amqpTemplate.convertAndSend(
+                    "user-score",
+                    objectMapper.writeValueAsString(user)
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    // Envio na fila de partidas
-    public void sendMatch(Match match) throws JsonProcessingException {
-        amqpTemplate.convertAndSend(
-                "match-queue",
-                objectMapper.writeValueAsString(match)
-        );
+    public void sendMatchStart(Match match) {
+        try {
+            amqpTemplate.convertAndSend(
+                    "match-queue",
+                    objectMapper.writeValueAsString(match)
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

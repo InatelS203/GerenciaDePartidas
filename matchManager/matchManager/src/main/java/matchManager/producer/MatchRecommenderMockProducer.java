@@ -18,13 +18,11 @@ public class MatchRecommenderMockProducer {
     private AmqpTemplate amqpTemplate;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public void sendRecommendedMatch(User[] user) throws JsonProcessingException {
-        Timestamp timestamp = Timestamp.from(Instant.now());
-        Match match = new Match(UUID.randomUUID(), user[0], user[1], user[1].getId(), timestamp, timestamp);
+    public void sendRecommendedMatch(User[] users) throws JsonProcessingException {
 
         amqpTemplate.convertAndSend(
                 "match-queue",
-                objectMapper.writeValueAsString(match)
+                objectMapper.writeValueAsString(users)
         );
     }
 }
