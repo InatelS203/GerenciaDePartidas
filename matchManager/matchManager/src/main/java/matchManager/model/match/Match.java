@@ -30,4 +30,12 @@ public class Match {
     private UUID winner_id;
     private Timestamp startTimestamp;
     private Timestamp endTimestamp;
+
+    private  String link;
+
+    public Match(User user1, User user2, Timestamp startTimestamp) {
+        this.user1 = user1;
+        this.user2 = user2;
+        this.startTimestamp = startTimestamp;
+    }
 }
