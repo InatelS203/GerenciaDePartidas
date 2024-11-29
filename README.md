@@ -27,6 +27,7 @@ git clone https://github.com/InatelS203/GerenciaDePartidas.git
 "matchManager\matchManager\"
 
 Run Postgres and RabbitMQ first
+
 ```bash
 docker-compose up -d postgres rabbitmq
 ```
@@ -42,13 +43,10 @@ Login with username="guest" and password="guest"
 5. Create the "user-queue" following the image
 ![Queue tab in RabbitMQ](/documentation/createQueueInRabbitMQ.png)
 
-6. Do the same as in step 5, but for "match-queue"
+6. Do the same as in step 5, but for "user-score", "match-queue", "match-start", "match-finish"
 
 7. Now, back into your commando line tool, run the app
+ 
 ```bash
 docker-compose up -d app
 ```
-
-## API Documentation
-TODO
-
